@@ -27,7 +27,7 @@ function generatePassword() {
   else if (passwordLength < 8) {
     passwordLength = 8;
   }
-  console.log("passwordLength", passwordLength);
+  // TODO validate input for non number entries
 
   // series of confirms to pick various character types
   // initialize choices to be used outside do-while loop
@@ -41,37 +41,29 @@ function generatePassword() {
     alert(charTypePrompt);
 
     const lowercasePrompt =
-      "Does your password require lowercase characters?";
+      "(1/4) Does your password require lowercase characters?";
     lowercase = confirm(lowercasePrompt);
-    console.log("lowercase", lowercase);
 
     const uppercasePrompt =
-      "Does your password require uppercase characters?";
+      "(2/4) Does your password require uppercase characters?";
     uppercase = confirm(uppercasePrompt);
-    console.log("uppercase", uppercase);
 
     const numericPrompt =
-      "Does your password require numeric characters?";
+      "(3/4) Does your password require numeric characters?";
     numeric = confirm(numericPrompt);
-    console.log("numeric", numeric);
 
     const specialPrompt =
-      "Does your password require special characters?";
+      "(4/4) Does your password require special characters?";
     special = confirm(specialPrompt);
-    console.log("special", special);
   } // forces user to select at least one character type before leaving while loop
   while (!lowercase && !uppercase && !numeric && !special)
 
   // make strings for each character type
   // combine into one string for all character types selected
   const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-  console.log("lowercase", lowercaseChars.length);
   const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  console.log("uppercase", uppercaseChars.length);
   const numbers = "0123456789"
-  console.log("numbers", numbers.length)
   const specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-  console.log("specialChars", specialChars);
   
   let availChars = '';
   if (lowercase) {
