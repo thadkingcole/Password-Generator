@@ -87,10 +87,12 @@ function generatePassword() {
     availChars += specialChars;
   }
 
-  let password = ''
-
-
+  // initalize password to empty string
+  let password = '';
+  // add to it from available characters until password length is reached
   for (let i = 0; i < passwordLength; i++) {
+    charToAdd = getRndInteger(0, availChars.length - 1)
+    password += availChars.charAt(charToAdd);
   }
   return password
 }
