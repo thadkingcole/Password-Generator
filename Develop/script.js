@@ -108,7 +108,7 @@ function generatePassword() {
   // generate the password given the user chosen parameters
   do {
     // initialize/reset password to empty string
-    password = '';
+    password = "";
 
     // add to it from available characters until password length is reached
     for (let i = 1; i <= passwordLength; i++) {
