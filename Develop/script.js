@@ -2,23 +2,15 @@
 const generateBtn = document.querySelector("#generate");
 
 
-// Write password to the #password input
-function writePassword() {
-  const password = generatePassword();
-  const passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+// generate random number between min & max (from w3schools)
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
+// generate password with user-given criteria
 function generatePassword() {
-  /*
-    Provides user with series of prompts to generate password with the desired
-    length and character types
-
-    returns: (string) password
-  */
-
+  
   // initialize variables with function scope
   let lowercase = false,
   uppercase = false,
@@ -126,9 +118,12 @@ function generatePassword() {
 }
 
 
-// generate random number between min & max (from w3schools)
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+// Write password to the #password input
+function writePassword() {
+  const password = generatePassword();
+  const passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
 }
 
 
