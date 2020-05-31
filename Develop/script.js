@@ -8,17 +8,13 @@ function writePassword() {
   const passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  /* 
-    TODO:
-      change "generate password" button to "change criteria"
-      show new button "generate another (same criteria)"
-  */
 }
 
 
 function generatePassword() {
   /*
-    Provides user with series of prompts to generate password with the desired length and character types
+    Provides user with series of prompts to generate password with the desired
+    length and character types
 
     returns: (string) password
   */
@@ -26,20 +22,19 @@ function generatePassword() {
   const passwordLengthPrompt =
     "Choose your desired password length between 8 & 128 characters.\n" +
     "Default length is 8 characters."
-  let passwordLength = prompt(passwordLengthPrompt)
+  let passwordLength = Number(prompt(passwordLengthPrompt, '8'))
   // validate passwordLength user input
   if (passwordLength > 128) {
     passwordLength = 128;
   }
-  else if (passwordLength < 8) {
+  else if (isNaN(passwordLength) || passwordLength < 8) {
     passwordLength = 8;
   }
-  // TODO validate input for non number entries
 
   do {
     let chosenTypes = "\nChosen Types:";
     const instructions =
-      "\nPress [Ok] for yes" +
+      "\nPress [OK] for yes" +
       "\nPress [Cancel] for no\n";
 
     const lowercasePrompt =
@@ -50,21 +45,24 @@ function generatePassword() {
     }
 
     const uppercasePrompt =
-      "(2/4) Does your password require uppercase characters?" + instructions + chosenTypes;
+      "(2/4) Does your password require uppercase characters?" +
+      instructions + chosenTypes;
     var uppercase = confirm(uppercasePrompt);
     if (uppercase) {
       chosenTypes += "\nuppercase";
     }
 
     const numericPrompt =
-      "(3/4) Does your password require numeric characters?" + instructions + chosenTypes;
+      "(3/4) Does your password require numeric characters?" +
+      instructions + chosenTypes;
     var numeric = confirm(numericPrompt);
     if (numeric) {
       chosenTypes += "\nnumeric";
     }
 
     const specialPrompt =
-      "(4/4) Does your password require special characters?" + instructions + chosenTypes;
+      "(4/4) Does your password require special characters?" +
+      instructions + chosenTypes;
     var special = confirm(specialPrompt);
     if (special) {
       chosenTypes += "\nspecial";
