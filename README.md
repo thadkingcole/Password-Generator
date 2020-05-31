@@ -15,7 +15,7 @@ No installation necessary! Try it out yourself by [clicking here](https://thadki
 
 ## Usage
 
-1. Navigate to https://thadkingcole.github.io/Password-Generator
+1. Navigate to <https://thadkingcole.github.io/Password-Generator>
 2. Click the red "Generate Password" button towards the bottom of the page.
 
 ![Generate Password Button](./Assets/Screenshots/02_generatePasswordBtn.png)
@@ -35,7 +35,7 @@ No installation necessary! Try it out yourself by [clicking here](https://thadki
     >Note: You must click **OK** for at least one (1) character type.
 
     ![pick at least one character type](./Assets/Screenshots/08_pick1.png)
-    
+
 4. Your generated password will be displayed in the middle of the dotted box.
 
 ![generated password](./Assets/Screenshots/09_passwordDisplay.png)
