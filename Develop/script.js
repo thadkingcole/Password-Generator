@@ -8,7 +8,11 @@ function writePassword() {
   const passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+  /* 
+    TODO:
+      change "generate password" button to "change criteria"
+      show new button "generate another (same criteria)"
+  */
 }
 
 
@@ -34,27 +38,49 @@ function generatePassword() {
   let lowercase = true;
   let uppercase = false;
   let numeric = false;
-  let special = false; 
+  let special = false;
   do {
-    const charTypePrompt =
-      "Please select at least 1 of the 4 following character types";
-    alert(charTypePrompt);
+    let chosenTypes = "\nChosen Types:";
+    const instructions =
+      "\n    [Ok] for yes" +
+      "\n    [Cancel] for no\n";
 
     const lowercasePrompt =
-      "(1/4) Does your password require lowercase characters?";
+      "(1/4) Does your password require lowercase characters?" + instructions;
     lowercase = confirm(lowercasePrompt);
+    if (lowercase) {
+      chosenTypes += "\nlowercase"
+    }
 
     const uppercasePrompt =
-      "(2/4) Does your password require uppercase characters?";
+      "(2/4) Does your password require uppercase characters?" + instructions + chosenTypes;
     uppercase = confirm(uppercasePrompt);
+    if (uppercase) {
+      chosenTypes += "\nuppercase"
+    }
 
     const numericPrompt =
-      "(3/4) Does your password require numeric characters?";
+      "(3/4) Does your password require numeric characters?" + instructions + chosenTypes;
     numeric = confirm(numericPrompt);
+    if (numeric) {
+      chosenTypes += "\nnumeric"
+    }
 
     const specialPrompt =
-      "(4/4) Does your password require special characters?";
+      "(4/4) Does your password require special characters?" + instructions + chosenTypes;
     special = confirm(specialPrompt);
+    if (special) {
+      chosenTypes += "\nspecial"
+    }
+
+    if (!lowercase && !uppercase && !numeric && !special) {
+      // tell user they have to pick at least one character type
+      const charTypePrompt =
+        "You did not select any character types.\n" +
+        "Please select at least one character type.";
+      alert(charTypePrompt);
+    }
+
   } // forces user to select at least one character type before leaving while loop
   while (!lowercase && !uppercase && !numeric && !special)
 
@@ -64,7 +90,7 @@ function generatePassword() {
   const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const numbers = "0123456789"
   const specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-  
+
   let availChars = '';
   if (lowercase) {
     availChars += lowercaseChars;
@@ -85,6 +111,12 @@ function generatePassword() {
   for (let i = 0; i < passwordLength; i++) {
     charToAdd = getRndInteger(0, availChars.length - 1)
     password += availChars.charAt(charToAdd);
+    /*
+      TODO:
+        ensure generate password has at least 1 of each character type
+        maybe another do while since short passwords will most likely need
+        multiple generations. long passwords will almost certainly meet all criteria
+    */
   }
   return password
 }
