@@ -25,7 +25,7 @@ No installation necessary! Try it out yourself by [clicking here](https://thadki
 
     ![Password Length Prompt](./Assets/Screenshots/03_passwordLengthPrompt.png)
 
-    2. Click **OK** for each character type desired, or **cancel** to exclude that character type. Available character types include lowercase and uppercase english letters, numbers 0-9, and all [UTF-8 basic latin](https://www.w3schools.com/charsets/ref_utf_basic_latin.asp) special characters except SPACE.
+    2. Click **OK** for each character type desired, or **cancel** to exclude that character type. Available character types include lowercase and uppercase english letters, numbers 0-9, and all [UTF-8 basic latin](https://www.w3schools.com/charsets/ref_utf_basic_latin.asp) special characters except SPACE. A list of each character type you have chosen to include will be listed in each prompt.
 
     ![lowercase prompt](./Assets/Screenshots/04_lowercase.png)
     ![uppercase prompt](./Assets/Screenshots/05_uppercase.png)
