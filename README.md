@@ -25,15 +25,15 @@ No installation necessary! Try it out yourself by [clicking here](https://thadki
     
     ![Password Length Prompt](./Assets/Screenshots/03_passwordLengthPrompt.png)
     
-    2. Click [OK] for each character type desired, or [cancel] to exclude that character type. Available character types include lowercase and uppercase english letters, numbers 0-9, and all [UTF-8 basic latin](https://www.w3schools.com/charsets/ref_utf_basic_latin.asp) special characters except SPACE.
+    2. Click **OK** for each character type desired, or **cancel** to exclude that character type. Available character types include lowercase and uppercase english letters, numbers 0-9, and all [UTF-8 basic latin](https://www.w3schools.com/charsets/ref_utf_basic_latin.asp) special characters except SPACE.
     
     ![lowercase prompt](./Assets/Screenshots/04_lowercase.png)
     ![uppercase prompt](./Assets/Screenshots/05_uppercase.png)
     ![numeric prompt](./Assets/Screenshots/06_numeric.png)
     ![special prompt](./Assets/Screenshots/07_special.png)
 
-    >Note: You must click [OK] for at least one (1) character type.
-    
+    >Note: You must click **OK** for at least one (1) character type.
+
     ![pick at least one character type](./Assets/Screenshots/08_pick1.png)
     
 4. Your generated password will be displayed in the middle of the dotted box.
