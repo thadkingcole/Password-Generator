@@ -100,7 +100,6 @@ button[disabled] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   display: block;
   width: 100%;
   padding: 15px 15px 85px 15px;
