@@ -18,7 +18,15 @@ function generatePassword() {
 
     returns: (string) password
   */
-  // length of password between 8 and 128
+
+  // initialize variables with function scope
+  let lowercase = false,
+  uppercase = false,
+  numeric = false,
+  special = false,
+  password = '';
+
+  // prompt user for length of password between 8 and 128
   const passwordLengthPrompt =
     "Choose your desired password length between 8 & 128 characters.\n" +
     "Default length is 8 characters."
@@ -31,78 +39,76 @@ function generatePassword() {
     passwordLength = 8;
   }
 
+  // make strings for each character type
+  const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+  const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numbers = "0123456789";
+  const specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+  // combine into one string for all character types selected
+  let availChars = '';
+
   do {
     let chosenTypes = "\nChosen Types:";
     const instructions =
       "\nPress [OK] for yes" +
       "\nPress [Cancel] for no\n";
 
+    // ask user if they want lowercase characters
     const lowercasePrompt =
       "(1/4) Does your password require lowercase characters?" + instructions;
-    var lowercase = confirm(lowercasePrompt);
+    lowercase = confirm(lowercasePrompt);
     if (lowercase) {
       chosenTypes += "\nlowercase";
+      availChars += lowercaseChars;
     }
 
+    // ask user if they want uppercase characters
     const uppercasePrompt =
       "(2/4) Does your password require uppercase characters?" +
       instructions + chosenTypes;
-    var uppercase = confirm(uppercasePrompt);
+    uppercase = confirm(uppercasePrompt);
     if (uppercase) {
       chosenTypes += "\nuppercase";
+      availChars += uppercaseChars;
     }
-
+    
+    // ask user if they want numeric characters
     const numericPrompt =
       "(3/4) Does your password require numeric characters?" +
       instructions + chosenTypes;
-    var numeric = confirm(numericPrompt);
+    numeric = confirm(numericPrompt);
     if (numeric) {
       chosenTypes += "\nnumeric";
+      availChars += numbers;
     }
 
+    // ask user if they want special characters
     const specialPrompt =
       "(4/4) Does your password require special characters?" +
       instructions + chosenTypes;
-    var special = confirm(specialPrompt);
+    special = confirm(specialPrompt);
     if (special) {
       chosenTypes += "\nspecial";
+      availChars += specialPrompt;
     }
 
+    // if user did not select at least one character type...
     if (!lowercase && !uppercase && !numeric && !special) {
-      // tell user they have to pick at least one character type
+      // tell user they have to pick at least one character type...
       const charTypePrompt =
         "You did not select any character types.\n" +
         "Please select at least one character type.";
       alert(charTypePrompt);
+      availChars = '';
     }
 
-  } // while condition forces user to select at least one character type before leaving the loop
+  } // ...and repeat the do loop until at least one type is chosen
   while (!lowercase && !uppercase && !numeric && !special)
 
-  // make strings for each character type
-  const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-  const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const numbers = "0123456789";
-  const specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-
-  // combine into one string for all character types selected
-  let availChars = '';
-  if (lowercase) {
-    availChars += lowercaseChars;
-  }
-  if (uppercase) {
-    availChars += uppercaseChars;
-  }
-  if (numeric) {
-    availChars += numbers;
-  }
-  if (special) {
-    availChars += specialChars;
-  }
-
+  // generate the password given the user chosen parameters
   do {
-    // initialize password to empty string
-    var password = '';
+    // initialize/reset password to empty string
+    password = '';
 
     // add to it from available characters until password length is reached
     for (let i = 1; i <= passwordLength; i++) {
