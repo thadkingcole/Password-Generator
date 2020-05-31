@@ -24,13 +24,13 @@ function generatePassword() {
   uppercase = false,
   numeric = false,
   special = false,
-  password = '';
+  password = "";
 
   // prompt user for length of password between 8 and 128
   const passwordLengthPrompt =
     "Choose your desired password length between 8 & 128 characters.\n" +
     "Default length is 8 characters.";
-  let passwordLength = Number(prompt(passwordLengthPrompt, '8'));
+  let passwordLength = Number(prompt(passwordLengthPrompt, "8"));
   // validate passwordLength user input
   if (passwordLength > 128) {
     passwordLength = 128;
@@ -45,7 +45,7 @@ function generatePassword() {
   const numbers = "0123456789";
   const specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
   // combine into one string for all character types selected
-  let availChars = '';
+  let availChars = "";
 
   do {
     let chosenTypes = "\nChosen Types:";
@@ -99,7 +99,7 @@ function generatePassword() {
         "You did not select any character types.\n" +
         "Please select at least one character type.";
       alert(charTypePrompt);
-      availChars = '';
+      availChars = "";
     }
 
   } // ...and repeat the do loop until at least one type is chosen
