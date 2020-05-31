@@ -16,12 +16,15 @@ function writePassword() {
 }
 
 
-// Provide user with series of prompts to generate the password
-// returns password(str)
 function generatePassword() {
+  /*
+    Provides user with series of prompts to generate password with the desired length and character types
+
+    returns: (string) password
+  */
   // length of password between 8 and 128
   const passwordLengthPrompt =
-    "Choose your desired password length (8-128 characters).\n" +
+    "Choose your desired password length between 8 & 128 characters.\n" +
     "Default length is 8 characters."
   let passwordLength = prompt(passwordLengthPrompt)
   // validate passwordLength user input
@@ -33,44 +36,38 @@ function generatePassword() {
   }
   // TODO validate input for non number entries
 
-  // series of confirms to pick various character types
-  // initialize choices to be used outside do-while loop
-  let lowercase = true;
-  let uppercase = false;
-  let numeric = false;
-  let special = false;
   do {
     let chosenTypes = "\nChosen Types:";
     const instructions =
-      "\n    [Ok] for yes" +
-      "\n    [Cancel] for no\n";
+      "\nPress [Ok] for yes" +
+      "\nPress [Cancel] for no\n";
 
     const lowercasePrompt =
       "(1/4) Does your password require lowercase characters?" + instructions;
-    lowercase = confirm(lowercasePrompt);
+    var lowercase = confirm(lowercasePrompt);
     if (lowercase) {
-      chosenTypes += "\nlowercase"
+      chosenTypes += "\nlowercase";
     }
 
     const uppercasePrompt =
       "(2/4) Does your password require uppercase characters?" + instructions + chosenTypes;
-    uppercase = confirm(uppercasePrompt);
+    var uppercase = confirm(uppercasePrompt);
     if (uppercase) {
-      chosenTypes += "\nuppercase"
+      chosenTypes += "\nuppercase";
     }
 
     const numericPrompt =
       "(3/4) Does your password require numeric characters?" + instructions + chosenTypes;
-    numeric = confirm(numericPrompt);
+    var numeric = confirm(numericPrompt);
     if (numeric) {
-      chosenTypes += "\nnumeric"
+      chosenTypes += "\nnumeric";
     }
 
     const specialPrompt =
       "(4/4) Does your password require special characters?" + instructions + chosenTypes;
-    special = confirm(specialPrompt);
+    var special = confirm(specialPrompt);
     if (special) {
-      chosenTypes += "\nspecial"
+      chosenTypes += "\nspecial";
     }
 
     if (!lowercase && !uppercase && !numeric && !special) {
@@ -81,16 +78,16 @@ function generatePassword() {
       alert(charTypePrompt);
     }
 
-  } // forces user to select at least one character type before leaving while loop
+  } // while condition forces user to select at least one character type before leaving the loop
   while (!lowercase && !uppercase && !numeric && !special)
 
   // make strings for each character type
-  // combine into one string for all character types selected
   const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
   const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const numbers = "0123456789"
+  const numbers = "0123456789";
   const specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
+  // combine into one string for all character types selected
   let availChars = '';
   if (lowercase) {
     availChars += lowercaseChars;
@@ -105,26 +102,31 @@ function generatePassword() {
     availChars += specialChars;
   }
 
-  // initalize password to empty string
-  let password = '';
-  // add to it from available characters until password length is reached
-  for (let i = 0; i < passwordLength; i++) {
-    charToAdd = getRndInteger(0, availChars.length - 1)
-    password += availChars.charAt(charToAdd);
-    /*
-      TODO:
-        ensure generate password has at least 1 of each character type
-        maybe another do while since short passwords will most likely need
-        multiple generations. long passwords will almost certainly meet all criteria
-    */
-  }
+  do {
+    // initialize password to empty string
+    var password = '';
+
+    // add to it from available characters until password length is reached
+    for (let i = 1; i <= passwordLength; i++) {
+      charToAdd = getRndInteger(0, availChars.length - 1)
+      password += availChars.charAt(charToAdd);
+    }
+  } // verify all user-selected char types are in password; otherwise, redo
+  while (
+    (lowercase && password.search(/[a-z]/) === -1) ||
+    (uppercase && password.search(/[A-Z]/) === -1) ||
+    (numeric && password.search(/\d/)) === -1 ||
+    (special && password.search(RegExp("[" + specialChars + "]")) === -1)
+  )
   return password
 }
+
 
 // generate random number between min & max (from w3schools)
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
