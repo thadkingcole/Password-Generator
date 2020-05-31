@@ -32,7 +32,7 @@ No installation necessary! Try it out yourself by [clicking here](https://thadki
     ![numeric prompt](./Assets/Screenshots/06_numeric.png)
     ![special prompt](./Assets/Screenshots/07_special.png)
 
-       Note: You must click [OK] for at least one (1) character type.
+    >Note: You must click [OK] for at least one (1) character type.
     
     ![pick at least one character type](./Assets/Screenshots/08_pick1.png)
     
@@ -42,7 +42,7 @@ No installation necessary! Try it out yourself by [clicking here](https://thadki
 
 5. You can generate as many passwords as desired by clicking the red "Generate Password" and following the prompts. Each new generated password is displayed in the same location as the last generated password.
 
-       Note: This app does NOT save any generated passwords, so once it is no longer displayed, it is gone forever. I recommend you either copy/paste or write down any generated password you want to use and keep it in a location others cannot find and/or access.
+    >Note: This app does NOT save any generated passwords, so once it is no longer displayed, it is gone forever. I recommend you either copy/paste or write down any generated password you want to use and keep it in a location others cannot find and/or access.
 
 ## Licence
 
