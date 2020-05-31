@@ -112,7 +112,7 @@ function generatePassword() {
 
     // add to it from available characters until password length is reached
     for (let i = 1; i <= passwordLength; i++) {
-      charToAdd = getRndInteger(0, availChars.length - 1);
+      const charToAdd = getRndInteger(0, availChars.length - 1);
       password += availChars.charAt(charToAdd);
     }
   } // verify all user-selected char types are in password; otherwise, redo
