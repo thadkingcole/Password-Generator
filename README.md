@@ -5,9 +5,9 @@ A random password generator - made with javascript
 
 ## Table of Contents
 
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [License](#License)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [License](#License)
 
 ## Installation
 
