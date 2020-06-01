@@ -1,5 +1,5 @@
 # [Password Generator](https://thadkingcole.github.io/Password-Generator)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/744b35c392334abe98a8f66e7d649f3c)](https://www.codacy.com/manual/thadkingcole/Password-Generator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=thadkingcole/Password-Generator&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/744b35c392334abe98a8f66e7d649f3c)](https://www.codacy.com/manual/thadkingcole/Password-Generator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=thadkingcole/Password-Generator&amp;utm_campaign=Badge_Grade) ![GitHub top language](https://img.shields.io/github/languages/top/thadkingcole/Password-Generator)
 
 A random password generator - made with javascript
 
