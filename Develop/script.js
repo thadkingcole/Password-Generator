@@ -81,7 +81,7 @@ function generatePassword() {
     special = confirm(specialPrompt);
     if (special) {
       chosenTypes += "\nspecial";
-      availChars += specialPrompt;
+      availChars += specialChars;
     }
 
     // if user did not select at least one character type...
