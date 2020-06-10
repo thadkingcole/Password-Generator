@@ -46,7 +46,7 @@ No installation necessary! Try it out yourself by [clicking here](https://thadki
 
     >Note: This app does NOT save any generated passwords, so once it is no longer displayed, it is gone forever. I recommend you either copy/paste or write down any generated password you want to use and keep it in a location others cannot find and/or access.
 
-## Licence
+## License
 
 [GPL 3.0](LICENSE)
 
