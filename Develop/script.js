@@ -1,22 +1,19 @@
 // Assignment Code
 const generateBtn = document.querySelector("#generate");
 
-
 // generate random number between min & max (from w3schools)
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
 // generate password with user-given criteria
 function generatePassword() {
-  
   // initialize variables with function scope
   let lowercase = false,
-  uppercase = false,
-  numeric = false,
-  special = false,
-  password = "";
+    uppercase = false,
+    numeric = false,
+    special = false,
+    password = "";
 
   // prompt user for length of password between 8 and 128
   const passwordLengthPrompt =
@@ -26,8 +23,7 @@ function generatePassword() {
   // validate passwordLength user input
   if (passwordLength > 128) {
     passwordLength = 128;
-  }
-  else if (isNaN(passwordLength) || passwordLength < 8) {
+  } else if (isNaN(passwordLength) || passwordLength < 8) {
     passwordLength = 8;
   }
 
@@ -41,9 +37,7 @@ function generatePassword() {
 
   do {
     let chosenTypes = "\nChosen Types:";
-    const instructions =
-      "\nPress [OK] for yes" +
-      "\nPress [Cancel] for no\n";
+    const instructions = "\nPress [OK] for yes" + "\nPress [Cancel] for no\n";
 
     // ask user if they want lowercase characters
     const lowercasePrompt =
@@ -57,17 +51,19 @@ function generatePassword() {
     // ask user if they want uppercase characters
     const uppercasePrompt =
       "(2/4) Does your password require uppercase characters?" +
-      instructions + chosenTypes;
+      instructions +
+      chosenTypes;
     uppercase = confirm(uppercasePrompt);
     if (uppercase) {
       chosenTypes += "\nuppercase";
       availChars += uppercaseChars;
     }
-    
+
     // ask user if they want numeric characters
     const numericPrompt =
       "(3/4) Does your password require numeric characters?" +
-      instructions + chosenTypes;
+      instructions +
+      chosenTypes;
     numeric = confirm(numericPrompt);
     if (numeric) {
       chosenTypes += "\nnumeric";
@@ -77,7 +73,8 @@ function generatePassword() {
     // ask user if they want special characters
     const specialPrompt =
       "(4/4) Does your password require special characters?" +
-      instructions + chosenTypes;
+      instructions +
+      chosenTypes;
     special = confirm(specialPrompt);
     if (special) {
       chosenTypes += "\nspecial";
@@ -93,9 +90,7 @@ function generatePassword() {
       alert(charTypePrompt);
       availChars = "";
     }
-
-  } // ...and repeat the do loop until at least one type is chosen
-  while (!lowercase && !uppercase && !numeric && !special);
+  } while (!lowercase && !uppercase && !numeric && !special); // ...and repeat the do loop until at least one type is chosen
 
   // generate the password given the user chosen parameters
   do {
@@ -107,8 +102,7 @@ function generatePassword() {
       const charToAdd = getRndInteger(0, availChars.length - 1);
       password += availChars.charAt(charToAdd);
     }
-  } // verify all user-selected char types are in password; otherwise, redo
-  while (
+  } while ( // verify all user-selected char types are in password; otherwise, redo
     (lowercase && password.search(/[a-z]/) === -1) ||
     (uppercase && password.search(/[A-Z]/) === -1) ||
     (numeric && password.search(/\d/)) === -1 ||
@@ -117,7 +111,6 @@ function generatePassword() {
   return password;
 }
 
-
 // Write password to the #password input
 function writePassword() {
   const password = generatePassword();
@@ -125,7 +118,6 @@ function writePassword() {
 
   passwordText.value = password;
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
